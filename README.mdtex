@@ -12,8 +12,8 @@ $$
    {b_0} & {c_0} & {   } & {   } & { 0 } \\
    {a_1} & {b_1} & {c_1} & {   } & {   } \\
    {   } & {a_2} & {b_2} & \cdot & {   } \\
-   {   } & {   } & \cdot & \cdot & {c_{n-1}}\\
-   { 0 } & {   } & {   } & {a_n} & {b_n}\\
+   {   } & {   } & \cdot & \cdot & {c_{n-2}}\\
+   { 0 } & {   } & {   } & {a_{n-1}} & {b_{n-1}}\\
 \end{matrix}
 \right]
 \left[
@@ -22,7 +22,7 @@ $$
    {x_1 }  \\
    \cdot   \\
    \cdot   \\
-   {x_n }  \\
+   {x_{n-1} }  \\
 \end{matrix}
 \right]
 =
@@ -32,7 +32,7 @@ $$
    {d_1 }  \\
    \cdot   \\
    \cdot   \\
-   {d_n }  \\
+   {d_{n-1} }  \\
 \end{matrix}
 \right].
 $$
@@ -55,7 +55,7 @@ $$
 \begin{matrix}
    {x_0 }  \\
    {x_1 }  \\
-   {x_n }  \\
+   {x_2 }  \\
 \end{matrix}
 \right]
 =
@@ -73,7 +73,7 @@ var tdiag = require('solve-tridiagonal')
 
 var d = [4, 25, -5]
 
-tdiag([0, -1, 2], [2, 7, -3], [1, 4, 0], d)
+tdiag(3, [0, -1, 2], [2, 7, -3], [1, 4, 0], d)
 // => d = [ 1, 2, 3 ]
 ```
 
@@ -85,8 +85,9 @@ $ npm install solve-tridiagonal
 
 ## API
 
-#### `require('solve-tridiagonal')(a, b, c, d)`
+#### `require('solve-tridiagonal')(n, a, b, c, d)`
 **Arguments**:
+- `n`: an integer representing the number of equations to be solved
 - `a`: a javascript `Array` or typed array of length n representing the subdiagonal, indexed according to the equation above. Left unchanged by the solver.
 - `b`: a javascript `Array` or typed array of length n representing the diagonal, indexed as above. This vector is modified by the solver.
 - `c`: a javascript `Array` or typed array of length n representing the superdiagonal, indexed as above. This vector is modified by the solver.

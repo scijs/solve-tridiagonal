@@ -33,7 +33,7 @@ describe('solveTridiagonal', function () {
     var c = [1, 0, 0]
     var d = [5, 6, 7]
 
-    assert.isFalse(tdiag(a, b, c, d))
+    assert.isFalse(tdiag(3, a, b, c, d))
   })
 
   it('returns false if singular', function () {
@@ -45,7 +45,7 @@ describe('solveTridiagonal', function () {
     var c = [1, 3, 0]
     var d = [5, 6, 7]
 
-    assert.isFalse(tdiag(a, b, c, d))
+    assert.isFalse(tdiag(3, a, b, c, d))
   })
 
   for (var c = 1; c <= 100; c++) {
@@ -63,7 +63,7 @@ describe('solveTridiagonal', function () {
         var x = ndarray(d.slice(0))
 
         // Solve using tridiagonal algorithm:
-        assert(tdiag(a, b, c, d), 'returns true on success')
+        assert(tdiag(n, a, b, c, d), 'returns true on success')
 
         // Solve using dense solver:
         lup(A, A, P)

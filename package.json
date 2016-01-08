@@ -1,6 +1,6 @@
 {
   "name": "solve-tridiagonal",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Solve a system of linear tridiagonal equations",
   "main": "index.js",
   "scripts": {

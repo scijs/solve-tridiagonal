@@ -2,8 +2,7 @@
 
 module.exports = solveTridiagonal
 
-function solveTridiagonal (a, b, c, x) {
-  var n = x.length
+function solveTridiagonal (n, a, b, c, x) {
   var i, fac
 
   // Eliminate:
